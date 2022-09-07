@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/dress
+    username: root
+    password: qhfk0961
+
+mybatis:
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.dress.server.dto
+  configuration:
+    map-underscore-to-camel-case: true
