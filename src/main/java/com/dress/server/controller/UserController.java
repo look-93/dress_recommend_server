@@ -63,9 +63,10 @@ public class UserController {
         return ResponseEntity.ok().body(doubleCheckUser);
     }
 
-    @PutMapping("/{uPk}")
-    public ResponseEntity updateMyInfo(@PathVariable int uPk){
-        userService.updateMyInfo((uPk));
+    @PutMapping("/update")
+    public ResponseEntity updateMyInfo(@RequestBody User user){
+        userService.updateMyInfo(user);
+        //System.out.println(user);
         return ResponseEntity.ok().build();
     }
 

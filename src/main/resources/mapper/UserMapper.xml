@@ -26,7 +26,7 @@
         select * from user where u_id=#{userId}
     </select>
 
-    <update id="updateMyInfo" resultType="User" parameterType="int">
+    <update id="updateMyInfo" >
         update user set u_password=#{uPassword}, u_email=#{uEmail}, u_phon=#{uPhon} where u_pk=#{uPk}
     </update>
 </mapper>

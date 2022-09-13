@@ -15,6 +15,6 @@ public interface UserService {
 
     User getIdDoubleCheck(String userId);
 
-    void updateMyInfo(int uPk);
+    void updateMyInfo(User user);
 
 }

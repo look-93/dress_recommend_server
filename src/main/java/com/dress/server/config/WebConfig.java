@@ -10,6 +10,6 @@ public class WebConfig implements  WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") //내 Api주소를
                 .allowedOrigins("*") //모두에게 허용한다
-                .allowedMethods("GET", "POST");
+                .allowedMethods("GET", "POST", "PUT");
     }
 }
