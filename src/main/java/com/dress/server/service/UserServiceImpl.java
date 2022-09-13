@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService{
         return userMapper.getAllUser();
     }
 
+
     @Override
     public void addUser(User user) {
         userMapper.addUser(user);
@@ -36,6 +37,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getIdDoubleCheck(String userId) {
         return userMapper.getIdDoubleCheck(userId);
+    }
+
+    @Override
+    public void updateMyInfo(int uPk) {
+         userMapper.updateMyInfo(uPk);
     }
 
 

@@ -39,7 +39,7 @@ public class UserController {
 
         User resultUser = userService.getUser(user);
 
-        System.out.println(resultUser);
+        //System.out.println(resultUser);
 
         if(resultUser == null){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -51,17 +51,22 @@ public class UserController {
     @GetMapping("/{upk}")
     public ResponseEntity myInfo(@PathVariable int upk){
         User user = userService.getMyInfoByPk(upk);
-        System.out.println(user);
+        //System.out.println(user);
         return ResponseEntity.ok().body(user);
     }
 
     @GetMapping("/idcheck/{userId}")
     public ResponseEntity getIdDoubleCheck(@PathVariable String userId){
         User doubleCheckUser = userService.getIdDoubleCheck(userId);
-        System.out.println(doubleCheckUser);
+        //System.out.println(doubleCheckUser);
 
         return ResponseEntity.ok().body(doubleCheckUser);
     }
 
+    @PutMapping("/{uPk}")
+    public ResponseEntity updateMyInfo(@PathVariable int uPk){
+        userService.updateMyInfo((uPk));
+        return ResponseEntity.ok().build();
+    }
 
 }

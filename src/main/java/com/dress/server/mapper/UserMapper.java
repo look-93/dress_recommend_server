@@ -11,6 +11,7 @@ public interface UserMapper {
     void addUser(User user);
     User getUser(User user);
     User getMyInfoByPk(int upk);
-
     User getIdDoubleCheck(String userId);
+
+    void updateMyInfo(int uPk);
 }
