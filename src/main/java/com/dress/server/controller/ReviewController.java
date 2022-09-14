@@ -39,4 +39,11 @@ public class ReviewController {
 
         return ResponseEntity.ok().body(review);
     }
+
+    @GetMapping("/myreview/{uPk}")
+    public ResponseEntity getMyReviewByPk(@PathVariable int uPk){
+        Review review = reviewService.getMyReviewByPk(uPk);
+        System.out.println(review);
+        return ResponseEntity.ok().build();
+    }
 }

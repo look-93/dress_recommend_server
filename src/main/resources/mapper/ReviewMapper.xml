@@ -16,4 +16,8 @@
     <select id="getReviewByPk" resultType="Review" parameterType="int">
         SELECT * FROM review WHERE r_pk=#{rPk}
     </select>
+
+    <select id="getMyReviewByPk" resultType="Review" parameterType="int">
+        SELECT *FROM review WHERE u_pk=#{uPk}
+    </select>
 </mapper>

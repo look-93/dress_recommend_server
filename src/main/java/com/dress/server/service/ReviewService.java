@@ -13,4 +13,6 @@ public interface ReviewService {
 
      Review getReviewByPk(int rPk);
 
+     Review getMyReviewByPk(int uPk);
+
 }

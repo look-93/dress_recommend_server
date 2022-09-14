@@ -28,4 +28,9 @@ public class ReviewServiceImpl implements ReviewService{
     public Review getReviewByPk(int rPk) {
         return reviewMapper.getReviewByPk(rPk);
     }
+
+    @Override
+    public Review getMyReviewByPk(int uPk) {
+        return reviewMapper.getMyReviewByPk(uPk);
+    }
 }
