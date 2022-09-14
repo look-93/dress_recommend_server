@@ -73,7 +73,7 @@ public class UserController {
     @DeleteMapping("/delete/{upk}")
     public ResponseEntity getDeleteUser(@PathVariable int upk){
         userService.getDeleteUser(upk);
-        System.out.println(upk);
+        //System.out.println(upk);
         return ResponseEntity.ok().build();
     }
 
