@@ -5,8 +5,8 @@
 <mapper namespace="com.dress.server.mapper.ReviewMapper">
     <!-- #{}는 dto로 값을 받아올때 사용 -->
     <insert id="addReview">
-        INSERT INTO review(img_url, create_date, u_pk, content)
-        VALUES(#{imgUrl}, now(), #{uPk}, #{content})
+        INSERT INTO review(img_url, create_date, u_pk )
+        VALUES(#{imgUrl}, now(), #{uPk})
     </insert>
     <!-- 조회 컬럼명으로 dto에 담긴다.-->
     <select id="getAllReview" resultType="Review">
@@ -18,6 +18,7 @@
     </select>
 
     <select id="getMyReviewByPk" resultType="Review" parameterType="int">
-        SELECT *FROM review WHERE u_pk=#{uPk}
+        SELECT a.r_pk, a.img_url, a.create_date, b.u_id, b.u_pk  FROM review a INNER JOIN user b ON a.u_pk = b.u_pk WHERE a.u_pk=#{upk}
+
     </select>
 </mapper>

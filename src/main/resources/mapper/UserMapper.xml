@@ -29,4 +29,8 @@
     <update id="updateMyInfo" >
         update user set u_password=#{uPassword}, u_email=#{uEmail}, u_phon=#{uPhon} where u_pk=#{uPk}
     </update>
+
+    <delete id="getDeleteUser">
+        delete from user where u_pk=#{upk}
+    </delete>
 </mapper>

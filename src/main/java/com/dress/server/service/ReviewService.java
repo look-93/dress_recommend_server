@@ -13,6 +13,6 @@ public interface ReviewService {
 
      Review getReviewByPk(int rPk);
 
-     Review getMyReviewByPk(int uPk);
+     List<Review> getMyReviewByPk(int upk);
 
 }

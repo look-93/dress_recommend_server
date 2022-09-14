@@ -14,4 +14,6 @@ public interface UserMapper {
     User getIdDoubleCheck(String userId);
 
     void updateMyInfo(User user);
+
+    void getDeleteUser(int upk);
 }

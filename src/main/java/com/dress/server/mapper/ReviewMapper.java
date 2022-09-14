@@ -11,5 +11,5 @@ public interface ReviewMapper {
      void addReview(Review review);
      List<Review> getAllReview();
      Review getReviewByPk(int rPk);
-     Review getMyReviewByPk(int uPk);
+     List<Review> getMyReviewByPk(int upk);
 }
