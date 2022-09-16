@@ -40,10 +40,16 @@ public class ReviewController {
         return ResponseEntity.ok().body(review);
     }
 
-    @GetMapping("/myreview/{upk}")
-    public ResponseEntity getMyReviewByPk(@PathVariable int upk){
-        List review = reviewService.getMyReviewByPk(upk);
+    @GetMapping("/myresult/{upk}")
+    public ResponseEntity getMyResultByPk(@PathVariable int upk){
+        List review = reviewService.getMyResultByPk(upk);
         //System.out.println(review);
         return ResponseEntity.ok().body(review);
+    }
+
+    @DeleteMapping("deleteMyResultByPk/{rPk}")
+    public ResponseEntity deleteMyResultByPk(@PathVariable int rPk){
+        reviewService.deleteMyResultByPk(rPk);
+        return ResponseEntity.ok().build();
     }
 }

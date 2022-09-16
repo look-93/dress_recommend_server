@@ -17,8 +17,11 @@
         SELECT * FROM review WHERE r_pk=#{rPk}
     </select>
 
-    <select id="getMyReviewByPk" resultType="Review" parameterType="int">
+    <select id="getMyResultByPk" resultType="Review" parameterType="int">
         SELECT a.r_pk, a.img_url, a.create_date, b.u_id, b.u_pk  FROM review a INNER JOIN user b ON a.u_pk = b.u_pk WHERE a.u_pk=#{upk}
-
     </select>
+
+    <delete id="deleteMyResultByPk" parameterType="int">
+        DELETE FROM review WHERE r_pk=#{rPk}
+    </delete>
 </mapper>

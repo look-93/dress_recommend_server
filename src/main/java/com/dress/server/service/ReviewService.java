@@ -13,6 +13,8 @@ public interface ReviewService {
 
      Review getReviewByPk(int rPk);
 
-     List<Review> getMyReviewByPk(int upk);
+     List<Review> getMyResultByPk(int upk);
+
+     void deleteMyResultByPk(int rPk);
 
 }

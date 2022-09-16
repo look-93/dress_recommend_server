@@ -30,7 +30,12 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public List<Review> getMyReviewByPk(int upk) {
-        return reviewMapper.getMyReviewByPk(upk);
+    public List<Review> getMyResultByPk(int upk) {
+        return reviewMapper.getMyResultByPk(upk);
+    }
+
+    @Override
+    public void deleteMyResultByPk(int rPk) {
+        reviewMapper.deleteMyResultByPk(rPk);
     }
 }

@@ -35,7 +35,7 @@ public class UserController {
     @PostMapping("/logIn")
     public  ResponseEntity logIn(@RequestBody User user){
 
-        System.out.println(user.getUId());
+        //System.out.println(user.getUId());
 
         User resultUser = userService.getUser(user);
 
