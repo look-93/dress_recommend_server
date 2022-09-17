@@ -4,9 +4,17 @@ spring:
     url: jdbc:mariadb://localhost:3306/dress
     username: root
     password: qhfk0961
-
+  mvc:
+    static-path-pattern: /static-url/**
 mybatis:
   mapper-locations: mapper/*.xml
   type-aliases-package: com.dress.server.dto
   configuration:
     map-underscore-to-camel-case: true
+
+#python:
+#  import:
+#    site: false
+python:
+  import:
+    site: false
