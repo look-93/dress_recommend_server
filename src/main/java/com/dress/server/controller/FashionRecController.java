@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//@RequestMapping("rec")
-//@RestController
-//@AllArgsConstructor
+@RequestMapping("rec")
+@RestController
+@AllArgsConstructor
 public class FashionRecController {
     private FashionRecService fashionRecService;
 
     @GetMapping("/woman/{top}/{bottom}")
     public ResponseEntity getWomanClothes(@PathVariable int top,@PathVariable int bottom){
         List result = fashionRecService.getWomanClothes(top,bottom);
+        System.out.println(top);
+        System.out.println(bottom);
         return ResponseEntity.ok().body(result);
     }
 

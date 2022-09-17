@@ -5,12 +5,12 @@
 <mapper namespace="com.dress.server.mapper.ReviewMapper">
     <!-- #{}는 dto로 값을 받아올때 사용 -->
     <insert id="addReview">
-        INSERT INTO review(img_url, create_date, u_pk )
-        VALUES(#{imgUrl}, now(), #{uPk})
+        INSERT INTO review(bottom_img_url, create_date, u_pk, top_img_url )
+        VALUES(#{bottomImgUrl}, now(), #{uPk},#{topImgUrl})
     </insert>
     <!-- 조회 컬럼명으로 dto에 담긴다.-->
     <select id="getAllReview" resultType="Review">
-        SELECT a.r_pk, a.img_url, a.create_date, a.content, b.u_id FROM review a INNER JOIN user b ON a.u_pk = b.u_pk
+        SELECT a.r_pk, a.bottom_img_url, a.top_img_url, a.create_date, a.content, b.u_id FROM review a INNER JOIN user b ON a.u_pk = b.u_pk
     </select>
 
     <select id="getReviewByPk" resultType="Review" parameterType="int">
@@ -18,7 +18,7 @@
     </select>
 
     <select id="getMyResultByPk" resultType="Review" parameterType="int">
-        SELECT a.r_pk, a.img_url, a.create_date, b.u_id, b.u_pk  FROM review a INNER JOIN user b ON a.u_pk = b.u_pk WHERE a.u_pk=#{upk}
+        SELECT a.r_pk, a.top_img_url, a.bottom_img_url, a.create_date, b.u_id, b.u_pk  FROM review a INNER JOIN user b ON a.u_pk = b.u_pk WHERE a.u_pk=#{upk}
     </select>
 
     <delete id="deleteMyResultByPk" parameterType="int">
