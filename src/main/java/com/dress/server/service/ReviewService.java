@@ -2,6 +2,7 @@ package com.dress.server.service;
 
 
 import com.dress.server.dto.Review;
+import com.dress.server.dto.UsedReview;
 
 import java.util.List;
 
@@ -16,5 +17,9 @@ public interface ReviewService {
      List<Review> getMyResultByPk(int upk);
 
      void deleteMyResultByPk(int rPk);
+
+     void myReview(UsedReview usedReview);
+
+     List<UsedReview> getAllUsedReview();
 
 }

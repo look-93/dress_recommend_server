@@ -24,4 +24,17 @@
     <delete id="deleteMyResultByPk" parameterType="int">
         DELETE FROM review WHERE r_pk=#{rPk}
     </delete>
+
+    <insert id="myReview">
+        INSERT INTO used_review (contents, rating, file_url, title, r_pk ,create_date)
+        VALUES (#{contents}, #{rating}, #{fileUrl}, #{title}, #{rPk} ,now())
+    </insert>
+
+    <select id="getAllUsedReview"  resultType="UsedReview">
+        SELECT * FROM user u
+        INNER JOIN review r
+        ON u.u_pk  = r.u_pk
+        INNER JOIN used_review ur
+        ON r.r_pk  = ur.r_pk
+    </select>
 </mapper>

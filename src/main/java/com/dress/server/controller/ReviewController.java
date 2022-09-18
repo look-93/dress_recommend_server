@@ -1,6 +1,7 @@
 package com.dress.server.controller;
 
 import com.dress.server.dto.Review;
+import com.dress.server.dto.UsedReview;
 import com.dress.server.dto.User;
 import com.dress.server.service.ReviewService;
 import org.springframework.http.ResponseEntity;
@@ -51,5 +52,19 @@ public class ReviewController {
     public ResponseEntity deleteMyResultByPk(@PathVariable int rPk){
         reviewService.deleteMyResultByPk(rPk);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/myReview")
+    public ResponseEntity myReview (@RequestBody UsedReview usedReview){
+        reviewService.myReview(usedReview);
+        //System.out.println(usedReview);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/allUsedReview")
+    public ResponseEntity getAllUsedReview(){
+       List allUsedReview = reviewService.getAllUsedReview();
+       System.out.println(allUsedReview);
+       return ResponseEntity.ok().body(allUsedReview);
     }
 }

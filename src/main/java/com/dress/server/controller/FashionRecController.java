@@ -27,6 +27,8 @@ public class FashionRecController {
     @GetMapping("/man/{top}/{bottom}")
     public ResponseEntity getManClothes(@PathVariable int top,@PathVariable int bottom){
         List result = fashionRecService.getManClothes(top,bottom);
+        System.out.println(top);
+        System.out.println(bottom);
         return ResponseEntity.ok().body(result);
     }
 }

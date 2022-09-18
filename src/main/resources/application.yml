@@ -6,6 +6,9 @@ spring:
     password: qhfk0961
   mvc:
     static-path-pattern: /static-url/**
+  servlet:
+    multipart:
+      location: C:\Users\qhfk0\IdeaProjects\DressServer\src\main\resources\static\usedreview
 mybatis:
   mapper-locations: mapper/*.xml
   type-aliases-package: com.dress.server.dto
