@@ -49,4 +49,9 @@ public class ReviewServiceImpl implements ReviewService{
     public List<UsedReview> getAllUsedReview() {
         return reviewMapper.getAllUsedReview();
     }
+
+    @Override
+    public UsedReview getUsedReviewByPk(int rPk) {
+        return reviewMapper.getUsedReviewByPk(rPk);
+    }
 }

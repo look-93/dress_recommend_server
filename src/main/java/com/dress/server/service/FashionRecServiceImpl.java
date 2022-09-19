@@ -50,7 +50,7 @@ public class FashionRecServiceImpl implements FashionRecService {
     @Override
     public List<String> callFashionPython(int type, int tob, int bottom) throws IOException, InterruptedException {
 
-        ProcessBuilder processBuilder = new ProcessBuilder("python", "C:\\Development\\DressRecommend\\dress-recommend-python\\fashion.py",String.valueOf(type),String.valueOf(tob),String.valueOf(bottom));
+        ProcessBuilder processBuilder = new ProcessBuilder("python", "C:\\finalproject\\dress-recommend-python\\fashion.py",String.valueOf(type),String.valueOf(tob),String.valueOf(bottom));
         processBuilder.redirectErrorStream(true);
         System.out.println("프로세스 실행");
         Process process = processBuilder.start();

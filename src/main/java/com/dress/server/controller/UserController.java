@@ -24,9 +24,9 @@ public class UserController {
 
     @PostMapping("/signUp")
     public ResponseEntity signUp(@RequestBody User user){
-//        if(user.getUId().equals("")){
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-//        }
+        if(user.getUId().equals("")){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
         userService.addUser(user);
 
         return ResponseEntity.ok().build();

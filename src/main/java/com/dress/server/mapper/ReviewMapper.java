@@ -18,4 +18,6 @@ public interface ReviewMapper {
      void myReview(UsedReview usedReview);
 
      List<UsedReview> getAllUsedReview();
+
+     UsedReview getUsedReviewByPk(int rPk);
 }

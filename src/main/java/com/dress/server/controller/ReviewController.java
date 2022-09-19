@@ -64,7 +64,13 @@ public class ReviewController {
     @GetMapping("/allUsedReview")
     public ResponseEntity getAllUsedReview(){
        List allUsedReview = reviewService.getAllUsedReview();
-       System.out.println(allUsedReview);
+       //System.out.println(allUsedReview);
        return ResponseEntity.ok().body(allUsedReview);
+    }
+
+    @GetMapping("/getUsedReviewByPk")
+    public ResponseEntity getUsedReviewByPk(@PathVariable int rPk){
+        reviewService.getUsedReviewByPk(rPk);
+        return ResponseEntity.ok().build();
     }
 }

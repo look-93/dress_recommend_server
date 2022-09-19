@@ -32,9 +32,18 @@
 
     <select id="getAllUsedReview"  resultType="UsedReview">
         SELECT * FROM user u
-        INNER JOIN review r
-        ON u.u_pk  = r.u_pk
-        INNER JOIN used_review ur
-        ON r.r_pk  = ur.r_pk
+                          INNER JOIN review r
+                                     ON u.u_pk  = r.u_pk
+                          INNER JOIN used_review ur
+                                     ON r.r_pk  = ur.r_pk
+    </select>
+
+    <select id="getUsedReviewByPk" resultType="UsedReview" parameterType="int">
+        SELECT * FROM user u
+                          INNER JOIN review r
+                                     ON u.u_pk  = r.u_pk
+                          INNER JOIN used_review ur
+                                     ON r.r_pk  = ur.r_pk
+        where r.r_pk = #{rPk}
     </select>
 </mapper>
