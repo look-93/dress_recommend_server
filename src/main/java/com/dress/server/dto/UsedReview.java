@@ -10,7 +10,7 @@ public class UsedReview {
     private String fileUrl;
     private String title;
     private int rPk;
-    private String createDate;
+    private String urCreateDate;
     private String uId;
 
 }

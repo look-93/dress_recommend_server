@@ -18,7 +18,13 @@
     </select>
 
     <select id="getMyResultByPk" resultType="Review" parameterType="int">
-        SELECT a.r_pk, a.top_img_url, a.bottom_img_url, a.create_date, b.u_id, b.u_pk  FROM review a INNER JOIN user b ON a.u_pk = b.u_pk WHERE a.u_pk=#{upk}
+        SELECT a.r_pk, a.top_img_url, a.bottom_img_url, a.create_date, b.u_id, b.u_pk, ur.ur_pk
+        FROM review a
+                 INNER JOIN user b
+                            ON a.u_pk = b.u_pk
+                 LEFT OUTER JOIN used_review ur
+                                 ON a.r_pk = ur.r_pk
+        WHERE a.u_pk=#{uPk}
     </select>
 
     <delete id="deleteMyResultByPk" parameterType="int">
@@ -26,7 +32,7 @@
     </delete>
 
     <insert id="myReview">
-        INSERT INTO used_review (contents, rating, file_url, title, r_pk ,create_date)
+        INSERT INTO used_review (contents, rating, file_url, title, r_pk ,ur_create_date)
         VALUES (#{contents}, #{rating}, #{fileUrl}, #{title}, #{rPk} ,now())
     </insert>
 
@@ -46,8 +52,9 @@
                                      ON r.r_pk  = ur.r_pk
         where ur.ur_pk = #{urPk}
     </select>
-
-    <select id="getUsedReviewByRpk" resultType="UsedReview" parameterType="int" >
-        SELECT  * FROM review AS a RIGHT OUTER JOIN used_review AS b ON a.r_pk = b.r_pk WHERE b.r_pk=#{rPk}
+<!-- 수정된 리뷰 뿌리기위해서 만듦 여기만 만듦 서비스 등 만들어야됨-->
+    <select id="">
+        SELECT * FROM used_review a INNER JOIN review r ON a.r_pk = r.r_pk WHERE a.r_pk=#{rPk}
     </select>
+
 </mapper>

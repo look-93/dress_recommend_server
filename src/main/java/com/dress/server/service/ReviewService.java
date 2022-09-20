@@ -24,6 +24,6 @@ public interface ReviewService {
 
      UsedReview getUsedReviewByPk(int urPk);
 
-     UsedReview getUsedReviewByRpk(int rPk);
+
 
 }

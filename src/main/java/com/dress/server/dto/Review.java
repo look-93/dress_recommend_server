@@ -11,6 +11,7 @@ public class Review {
     private int uPk;
     private String content;
     private String uId;
+    private int urPk;
 
 }
 
