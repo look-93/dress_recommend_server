@@ -73,4 +73,10 @@ public class ReviewController {
         UsedReview review = reviewService.getUsedReviewByPk(urPk);
         return ResponseEntity.ok().body(review);
     }
+
+    @GetMapping("/getUsedReviewByRpk/{rPk}")
+    public ResponseEntity getUsedReviewByRpk(@PathVariable int rPk){
+        UsedReview updateReview = reviewService.getUsedReviewByRpk(rPk);
+        return ResponseEntity.ok().body(updateReview);
+    }
 }

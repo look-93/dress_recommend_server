@@ -46,4 +46,8 @@
                                      ON r.r_pk  = ur.r_pk
         where ur.ur_pk = #{urPk}
     </select>
+
+    <select id="getUsedReviewByRpk" resultType="UsedReview" parameterType="int" >
+        SELECT  * FROM review AS a RIGHT OUTER JOIN used_review AS b ON a.r_pk = b.r_pk WHERE b.r_pk=#{rPk}
+    </select>
 </mapper>
