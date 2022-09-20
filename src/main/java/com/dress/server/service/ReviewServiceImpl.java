@@ -51,7 +51,7 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public UsedReview getUsedReviewByPk(int rPk) {
-        return reviewMapper.getUsedReviewByPk(rPk);
+    public UsedReview getUsedReviewByPk(int urPk) {
+        return reviewMapper.getUsedReviewByPk(urPk);
     }
 }

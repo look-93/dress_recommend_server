@@ -44,6 +44,6 @@
                                      ON u.u_pk  = r.u_pk
                           INNER JOIN used_review ur
                                      ON r.r_pk  = ur.r_pk
-        where r.r_pk = #{rPk}
+        where ur.ur_pk = #{urPk}
     </select>
 </mapper>

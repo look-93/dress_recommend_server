@@ -68,9 +68,9 @@ public class ReviewController {
        return ResponseEntity.ok().body(allUsedReview);
     }
 
-    @GetMapping("/getUsedReviewByPk")
-    public ResponseEntity getUsedReviewByPk(@PathVariable int rPk){
-        reviewService.getUsedReviewByPk(rPk);
-        return ResponseEntity.ok().build();
+    @GetMapping("/getUsedReviewByPk/{urPk}")
+    public ResponseEntity getUsedReviewByPk(@PathVariable int urPk){
+        UsedReview review = reviewService.getUsedReviewByPk(urPk);
+        return ResponseEntity.ok().body(review);
     }
 }
