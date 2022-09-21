@@ -52,9 +52,13 @@
                                      ON r.r_pk  = ur.r_pk
         where ur.ur_pk = #{urPk}
     </select>
-<!-- 수정된 리뷰 뿌리기위해서 만듦 여기만 만듦 서비스 등 만들어야됨-->
-    <select id="">
+
+    <select id="getUsedReviewByRpk" resultType="UsedReview" parameterType="int">
         SELECT * FROM used_review a INNER JOIN review r ON a.r_pk = r.r_pk WHERE a.r_pk=#{rPk}
     </select>
+
+    <update id="editReview">
+        UPDATE used_review SET contents = #{contents}, rating=#{rating}, file_url=#{fileUrl} , title=#{title} where r_pk=#{rPk}
+    </update>
 
 </mapper>

@@ -18,7 +18,7 @@ public class UtilController {
     public ResponseEntity uploadFile(@RequestParam("imgFile") MultipartFile imgFile){
         //System.out.println();
         String uploadUrl = "";
-        File file= new File("C:\\finalproject\\dress_recommend_server\\src\\main\\resources\\static\\usedreview\\"+imgFile.getOriginalFilename());
+        File file= new File("C:\\finalproject\\dress_recommend_server\\src\\main\\resources\\static\\usedreview"+imgFile.getOriginalFilename());
         try {
             imgFile.transferTo(file);
             uploadUrl = "http://localhost:8080/static-url/usedreview/"+imgFile.getOriginalFilename();

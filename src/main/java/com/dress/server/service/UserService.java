@@ -19,4 +19,6 @@ public interface UserService {
 
     void getDeleteUser(int upk);
 
+    void updateMyImgInfo(User user);
+
 }

@@ -48,6 +48,10 @@ public class UserServiceImpl implements UserService{
     public void getDeleteUser(int upk) {
         userMapper.getDeleteUser(upk);
     }
+    @Override
+    public void updateMyImgInfo(User user) {
+        userMapper.updateMyImgInfo(user);
+    }
 
 
 }

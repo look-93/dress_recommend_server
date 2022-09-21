@@ -16,4 +16,6 @@ public interface UserMapper {
     void updateMyInfo(User user);
 
     void getDeleteUser(int upk);
+
+    void updateMyImgInfo(User user);
 }

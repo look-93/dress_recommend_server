@@ -29,7 +29,11 @@
         update user set u_password=#{uPassword}, u_email=#{uEmail}, u_phon=#{uPhon} where u_pk=#{uPk}
     </update>
 
+    <update id="updateMyImgInfo">
+        update user set u_imgurl=#{uImgUrl} where u_pk=#{uPk}
+    </update>
+
     <delete id="getDeleteUser">
-        delete from user where u_pk=#{upk}
+        delete from user where u_pk=#{uPk}
     </delete>
 </mapper>

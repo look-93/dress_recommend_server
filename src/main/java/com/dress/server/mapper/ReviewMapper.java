@@ -22,4 +22,6 @@ public interface ReviewMapper {
      UsedReview getUsedReviewByPk(int urPk);
 
      UsedReview getUsedReviewByRpk(int rPk);
+
+     void editReview(UsedReview usedReview);
 }
