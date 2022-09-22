@@ -16,11 +16,12 @@ public class UtilController {
 
     @PostMapping("/uploadFile")
     public ResponseEntity uploadFile(@RequestParam("imgFile") MultipartFile imgFile){
-        //System.out.println();
+        //System.out.println(imgFile);
         String uploadUrl = "";
-        File file= new File("C:\\finalproject\\dress_recommend_server\\src\\main\\resources\\static\\usedreview"+imgFile.getOriginalFilename());
+        File file= new File("C:\\finalproject\\dress_recommend_server\\src\\main\\resources\\static\\usedreview\\"+imgFile.getOriginalFilename());
         try {
             imgFile.transferTo(file);
+            System.out.println(file);
             uploadUrl = "http://localhost:8080/static-url/usedreview/"+imgFile.getOriginalFilename();
 
         } catch (IOException e) {
