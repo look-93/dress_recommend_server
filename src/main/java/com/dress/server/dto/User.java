@@ -11,7 +11,7 @@ public class User {
     private String uGender;
     private String uEmail;
     private String uPhon;
-    private String uImgUrl;
+    private String uimgUrl;
 
 
 }

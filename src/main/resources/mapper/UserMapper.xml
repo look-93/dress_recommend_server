@@ -30,7 +30,7 @@
     </update>
 
     <update id="updateMyImgInfo">
-        update user set u_imgurl=#{uImgUrl} where u_pk=#{uPk}
+        update user set u_imgurl=#{uimgUrl} where u_pk=#{uPk}
     </update>
 
     <delete id="getDeleteUser">
