@@ -8,8 +8,8 @@ spring:
     static-path-pattern: /static-url/**
   servlet:
     multipart:
-      location: 'C:\\finalproject\dress_recommend_server\src\main\resources\static\usedreview\'
-      max-file-size: 10MB
+      location: C:\\finalproject\\dress_recommend_server\\src\main\\resources\\static\\usedreview\\
+      max-file-size: 200MB
       max-request-size: 100MB
 mybatis:
   mapper-locations: mapper/*.xml
