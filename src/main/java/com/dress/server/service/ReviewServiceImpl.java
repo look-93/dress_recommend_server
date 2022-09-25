@@ -1,6 +1,8 @@
 package com.dress.server.service;
 
+import com.dress.server.dto.Comment;
 import com.dress.server.dto.Review;
+import com.dress.server.dto.Star;
 import com.dress.server.dto.UsedReview;
 import com.dress.server.mapper.ReviewMapper;
 import org.springframework.stereotype.Service;
@@ -46,8 +48,19 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public List<UsedReview> getAllUsedReview() {
-        return reviewMapper.getAllUsedReview();
+    public List<UsedReview> getAllUsedReview(int uPk) {
+        List<Star> stars =  reviewMapper.getStar(uPk);
+        List<UsedReview> usedReviews = reviewMapper.getAllUsedReview();
+        for(int i=0; i<usedReviews.size(); i++){
+            UsedReview usedReview = usedReviews.get(i);
+            for(int j=0; j<stars.size(); j++){
+                Star star = stars.get(j);
+                if(usedReview.getRPk() == star.getRPk()){
+                    usedReview.setSPk(star.getSPk());
+                }
+            }
+        }
+        return usedReviews;
     }
 
     @Override
@@ -65,5 +78,24 @@ public class ReviewServiceImpl implements ReviewService{
         reviewMapper.editReview(usedReview);
     }
 
+    @Override
+    public void addComment(Comment comment) {
+        reviewMapper.addComment(comment);
+    }
+
+    @Override
+    public List<Comment> getUsedReviewComment(int urPk) {
+        return reviewMapper.getUsedReviewComment(urPk);
+    }
+
+    @Override
+    public void addStar(Star star) {
+        reviewMapper.addStar(star);
+    }
+
+    @Override
+    public void deleteStar(int sPk){
+        reviewMapper.deleteStar(sPk);
+    }
 
 }

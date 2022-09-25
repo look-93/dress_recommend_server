@@ -8,7 +8,7 @@ spring:
     static-path-pattern: /static-url/**
   servlet:
     multipart:
-      location: C:\\finalproject\\dress_recommend_server\\src\main\\resources\\static\\usedreview\\
+      location: C:\\Users\qhfk0\IdeaProjects\DressServer\src\main\resources\static\usedreview\
       max-file-size: 200MB
       max-request-size: 100MB
 mybatis:

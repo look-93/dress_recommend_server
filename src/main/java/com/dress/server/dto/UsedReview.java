@@ -12,5 +12,6 @@ public class UsedReview {
     private int rPk;
     private String urCreateDate;
     private String uId;
+    private int sPk;
 
 }

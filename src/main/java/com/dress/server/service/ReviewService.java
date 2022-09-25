@@ -1,7 +1,9 @@
 package com.dress.server.service;
 
 
+import com.dress.server.dto.Comment;
 import com.dress.server.dto.Review;
+import com.dress.server.dto.Star;
 import com.dress.server.dto.UsedReview;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public interface ReviewService {
 
      void myReview(UsedReview usedReview);
 
-     List<UsedReview> getAllUsedReview();
+     List<UsedReview> getAllUsedReview(int uPk);
 
      UsedReview getUsedReviewByPk(int urPk);
 
@@ -28,4 +30,10 @@ public interface ReviewService {
 
      void editReview(UsedReview usedReview);
 
+     void addComment(Comment comment);
+
+     List<Comment> getUsedReviewComment(int urPk);
+
+     void addStar(Star star);
+     void deleteStar(int sPk);
 }

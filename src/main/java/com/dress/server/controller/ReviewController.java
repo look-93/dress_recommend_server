@@ -1,8 +1,6 @@
 package com.dress.server.controller;
 
-import com.dress.server.dto.Review;
-import com.dress.server.dto.UsedReview;
-import com.dress.server.dto.User;
+import com.dress.server.dto.*;
 import com.dress.server.service.ReviewService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -61,10 +59,9 @@ public class ReviewController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/allUsedReview")
-    public ResponseEntity getAllUsedReview(){
-       List allUsedReview = reviewService.getAllUsedReview();
-       //System.out.println(allUsedReview);
+    @GetMapping("/allUsedReview/{uPk}")
+    public ResponseEntity getAllUsedReview(@PathVariable int uPk){
+       List allUsedReview = reviewService.getAllUsedReview(uPk);
        return ResponseEntity.ok().body(allUsedReview);
     }
 
@@ -85,4 +82,31 @@ public class ReviewController {
         reviewService.editReview(usedReview);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/addComment")
+    public ResponseEntity addComment(@RequestBody Comment comment){
+        reviewService.addComment(comment);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/comment/{urPk}")
+    public ResponseEntity comment(@PathVariable int urPk){
+        List<Comment> comments= reviewService.getUsedReviewComment(urPk);
+        return ResponseEntity.ok().body(comments);
+    }
+
+    @PostMapping("/star")
+    public ResponseEntity addStar(@RequestBody Star star){
+        reviewService.addStar(star);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/star/{sPk}")
+    public ResponseEntity deleteStar(@PathVariable int sPk){
+        System.out.println(sPk);
+        System.out.println("gdd");
+        reviewService.deleteStar(sPk);
+        return ResponseEntity.ok().build();
+    }
+
 }

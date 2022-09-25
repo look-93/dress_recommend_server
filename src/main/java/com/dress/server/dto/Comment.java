@@ -6,4 +6,7 @@ import lombok.Data;
 public class Comment {
     private String message;
     private String createDate;
+    private String uId;
+    private int urPk;
+    private int uPk;
 }

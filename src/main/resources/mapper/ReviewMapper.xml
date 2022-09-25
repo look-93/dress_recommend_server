@@ -61,4 +61,34 @@
         UPDATE used_review SET contents = #{contents}, rating=#{rating}, file_url=#{fileUrl} , title=#{title} where r_pk=#{rPk}
     </update>
 
+    <insert id="addComment">
+        INSERT INTO comment (message, create_date, ur_pk ,u_pk) VALUES (#{message}, now(), #{urPk},#{uPk})
+    </insert>
+
+    <select id="getUsedReviewComment" resultType="Comment" parameterType="int">
+        select
+            cm.message ,cm.create_date ,u.u_id
+        from
+            comment cm
+                inner join used_review ur on
+                cm.ur_pk = ur.ur_pk
+                inner join `user` u on
+                cm.u_pk = u.u_pk
+        where ur.ur_pk = #{urPk}
+
+    </select>
+
+    <insert id="addStar">
+        insert into star(u_pk,r_pk) values(#{uPk},#{rPk})
+    </insert>
+
+    <delete id="deleteStar" parameterType="int">
+        delete from star where s_pk = #{sPk}
+    </delete>
+
+    <select id="getStar" resultType="Star" parameterType="int">
+        select * from star where u_pk = #{uPk}
+    </select>
+
+
 </mapper>
