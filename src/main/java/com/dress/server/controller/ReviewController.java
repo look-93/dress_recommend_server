@@ -97,6 +97,7 @@ public class ReviewController {
 
     @PostMapping("/star")
     public ResponseEntity addStar(@RequestBody Star star){
+        System.out.println(star);
         reviewService.addStar(star);
         return ResponseEntity.ok().build();
     }
@@ -107,6 +108,35 @@ public class ReviewController {
         System.out.println("gdd");
         reviewService.deleteStar(sPk);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/getAllMyStar/{uPk}")
+    public ResponseEntity getMyAllStar(@PathVariable int uPk){
+        List<UsedReview> usedReviews = reviewService.getAllMyStar(uPk);
+        return ResponseEntity.ok().body(usedReviews);
+    }
+
+    @PostMapping("/heart")
+    public ResponseEntity addHeart(@RequestBody Heart heart){
+        reviewService.addHeart(heart);
+        //System.out.println(heart);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/heart/{hPk}")
+    public ResponseEntity deleteHeart(@PathVariable int hPk){
+        //System.out.println(hPk);
+        //System.out.println("gdd");
+        reviewService.deleteHeart(hPk);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/getHeart/{rPk}")
+    public ResponseEntity getHeartCnt(@PathVariable int rPk){
+        System.out.println(rPk);
+        List<Heart> hearts = reviewService.getHeartCnt(rPk);
+        System.out.println(hearts);
+        return ResponseEntity.ok().body(hearts);
     }
 
 }

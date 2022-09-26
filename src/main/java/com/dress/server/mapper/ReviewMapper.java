@@ -1,9 +1,6 @@
 package com.dress.server.mapper;
 
-import com.dress.server.dto.Comment;
-import com.dress.server.dto.Review;
-import com.dress.server.dto.Star;
-import com.dress.server.dto.UsedReview;
+import com.dress.server.dto.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -35,5 +32,16 @@ public interface ReviewMapper {
      void deleteStar(int sPk);
 
      List<Star> getStar(int uPk);
+
+     List<UsedReview> getAllMyStar(int uPk);
+
+     void addHeart(Heart heart);
+
+     void deleteHeart(int hPk);
+
+     List<Heart> getHeart(int uPk);
+
+     List<Heart> getHeartCnt(int rPk);
+
 
 }

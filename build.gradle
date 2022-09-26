@@ -29,7 +29,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compileOnly 'org.springframework.boot:spring-boot-devtools:2.7.2'
+
     // https://mvnrepository.com/artifact/org.python/jython
     implementation group: 'org.python', name: 'jython-standalone', version: '2.7.2'
 
