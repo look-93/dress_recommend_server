@@ -92,11 +92,11 @@
 
     <select id="getAllMyStar" resultType="UsedReview"  parameterType="int" >
         select u.u_id, ur.ur_create_date, ur.file_url
-        from user u
-                 inner join star s on u.u_pk = s.u_pk
-                 inner join used_review ur on ur.r_pk = s.r_pk
-                 inner join review r on r.r_pk =s.r_pk
-        where s.u_pk=#{uPk}
+        from star s
+                 inner join review r on r.r_pk = s.r_pk
+                 inner join user u ON r.u_pk =u.u_pk
+                 inner join used_review ur on ur.r_pk =r.r_pk
+        where s.u_pk= #{rPk}
     </select>
 
     <insert id="addHeart">
@@ -111,8 +111,8 @@
         select * from heart where u_pk = #{uPk}
     </select>
 
-    <select id="getHeartCnt" resultType="Heart" parameterType="int">
-        select * from heart where r_pk = #{rPk}
+    <select id="getHeartCnt" resultType="Heart">
+        select count(1) as cnt, r_pk from heart group by r_pk
     </select>
 
 

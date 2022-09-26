@@ -48,6 +48,7 @@ public class ReviewServiceImpl implements ReviewService{
     public List<UsedReview> getAllUsedReview(int uPk) {
         List<Star> stars =  reviewMapper.getStar(uPk);
         List<Heart> hearts = reviewMapper.getHeart(uPk);
+        List<Heart> heartCnts = reviewMapper.getHeartCnt();
         List<UsedReview> usedReviews = reviewMapper.getAllUsedReview();
         for(int i=0; i<usedReviews.size(); i++){
             UsedReview usedReview = usedReviews.get(i);
@@ -64,6 +65,15 @@ public class ReviewServiceImpl implements ReviewService{
                 Heart heart = hearts.get(j);
                 if(usedReview.getRPk() == heart.getRPk()){
                     usedReview.setHPk(heart.getHPk());
+                }
+            }
+        }
+        for(int i=0; i<usedReviews.size(); i++){
+            UsedReview usedReview = usedReviews.get(i);
+            for(int j=0; j<heartCnts.size(); j++){
+                Heart heart = heartCnts.get(j);
+                if(usedReview.getRPk() == heart.getRPk()){
+                    usedReview.setHCnt(heart.getCnt());
                 }
             }
         }
@@ -121,9 +131,7 @@ public class ReviewServiceImpl implements ReviewService{
         reviewMapper.deleteHeart(hPk);
     }
 
-    @Override
-    public List<Heart> getHeartCnt(int rPk) {
-        return reviewMapper.getHeartCnt(rPk);
-    }
+
+
 
 }

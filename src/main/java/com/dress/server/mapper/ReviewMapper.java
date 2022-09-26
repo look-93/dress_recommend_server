@@ -41,7 +41,7 @@ public interface ReviewMapper {
 
      List<Heart> getHeart(int uPk);
 
-     List<Heart> getHeartCnt(int rPk);
+     List<Heart> getHeartCnt();
 
 
 }

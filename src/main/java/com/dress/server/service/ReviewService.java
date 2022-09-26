@@ -40,5 +40,4 @@ public interface ReviewService {
 
      void deleteHeart(int hPk);
 
-     List<Heart> getHeartCnt(int rPk);
 }

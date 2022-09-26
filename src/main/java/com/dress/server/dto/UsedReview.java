@@ -15,5 +15,6 @@ public class UsedReview {
     private int sPk;
     private  int uPk;
     private int hPk;
+    private int hCnt;  //하트갯수
 
 }

@@ -131,12 +131,5 @@ public class ReviewController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/getHeart/{rPk}")
-    public ResponseEntity getHeartCnt(@PathVariable int rPk){
-        System.out.println(rPk);
-        List<Heart> hearts = reviewService.getHeartCnt(rPk);
-        System.out.println(hearts);
-        return ResponseEntity.ok().body(hearts);
-    }
 
 }
