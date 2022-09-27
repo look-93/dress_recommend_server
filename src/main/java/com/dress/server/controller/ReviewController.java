@@ -97,15 +97,14 @@ public class ReviewController {
 
     @PostMapping("/star")
     public ResponseEntity addStar(@RequestBody Star star){
-        System.out.println(star);
+        //System.out.println(star);
         reviewService.addStar(star);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/star/{sPk}")
     public ResponseEntity deleteStar(@PathVariable int sPk){
-        System.out.println(sPk);
-        System.out.println("gdd");
+        //System.out.println(sPk);
         reviewService.deleteStar(sPk);
         return ResponseEntity.ok().build();
     }

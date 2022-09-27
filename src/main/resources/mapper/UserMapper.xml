@@ -10,7 +10,7 @@
     </select>
 
     <insert id="addUser">
-        INSERT INTO user(u_id, u_password, u_name, u_email, u_phon, u_gender) VALUES (#{uId}, #{uPassword},#{uName}, #{uEmail}, #{uPhon}, #{uGender})
+        INSERT INTO user(u_id, u_password, u_name, u_email, u_phon, u_gender, u_imgurl) VALUES (#{uId}, #{uPassword},#{uName}, #{uEmail}, #{uPhon}, #{uGender},#{uimgUrl})
     </insert>
 
     <select id="getUser" resultType="User">

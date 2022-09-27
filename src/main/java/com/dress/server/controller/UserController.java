@@ -79,7 +79,7 @@ public class UserController {
 
     @PostMapping("/updateMyImgInfo")
     public ResponseEntity updateMyImgInfo(@RequestBody User user){
-        System.out.println(user);
+        //System.out.println(user);
         userService.updateMyImgInfo(user);
         return ResponseEntity.ok().build();
     }
